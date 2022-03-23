@@ -1,11 +1,16 @@
 import { initGlobalState } from 'qiankun'
+import { reactive } from 'vue'
 
-// 父应用初始化
-const initState = {
+/*
+ * 父应用初始化
+ * vue2.0 Vue.observable是为了让initialState变成可响应：https://cn.vuejs.org/v2/api/#Vue-observable。
+ * vue3.0 reactive 变成可响应
+ */
+const initState = reactive({
   user: {
     name: 'admin'
   }
-}
+})
 
 const actions = initGlobalState(initState)
 
