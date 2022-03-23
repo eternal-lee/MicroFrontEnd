@@ -1,0 +1,23 @@
+{
+  "name": "microfrontend",
+  "version": "1.0.0",
+  "description": "",
+  "devDependencies": {},
+  "scripts": {
+    "install": "npm-run-all --serial install:*",
+    "install:main": "cd examples/main && npm i",
+    "install:vue": "cd examples/vue && npm i",
+    "start": "npm-run-all --parallel start:*",
+    "start:main": "cd examples/main && npm run serve",
+    "start:vue": "cd examples/vue && npm run serve",
+    "build": "npm-run-all build:*",
+    "build:main": "cd examples/main && npm run build",
+    "build:vue": "cd examples/vue && npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "npm-run-all": "^4.1.5"
+  }
+}
