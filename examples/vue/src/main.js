@@ -21,10 +21,6 @@ function render(props = {}) {
 
   instance = createApp(App)
   instance.use(router).use(store).mount('#app')
-
-  instance.config.globalProperties.$onGlobalStateChange =
-    props.onGlobalStateChange
-  instance.config.globalProperties.$setGlobalState = props.setGlobalState
 }
 
 if (!window.__POWERED_BY_QIANKUN__) {

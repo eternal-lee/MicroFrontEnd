@@ -10,7 +10,8 @@
 <script>
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue'
-import { getCurrentInstance, ref } from 'vue'
+import { computed } from 'vue'
+import { useStore } from 'vuex'
 
 export default {
   name: 'HomeView',
@@ -18,13 +19,14 @@ export default {
     HelloWorld
   },
   setup() {
-    const { proxy } = getCurrentInstance()
-    const initState = ref('')
+    const store = useStore()
+
+    const initState = computed(() => store.state.global.user)
     const changeUsername = () => {
-      initState.value = {
+      const user = {
         user: { name: '李四' + Math.round(Math.random() * 100) }
       }
-      proxy.$setGlobalState && proxy.$setGlobalState(initState.value)
+      store.dispatch('global/setGlobalState', user)
     }
 
     return {
