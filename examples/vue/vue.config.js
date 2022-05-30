@@ -3,7 +3,7 @@ const { name } = require('./package.json')
 module.exports = defineConfig({
   transpileDependencies: false,
   publicPath: '/subapp/vue',
-  outputDir: './../../dist/suapp/vue',
+  outputDir: './../../dist/subapp/vue',
   configureWebpack: {
     output: {
       library: `${name}-[name]`,
