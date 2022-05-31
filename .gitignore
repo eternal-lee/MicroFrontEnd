@@ -3,4 +3,5 @@ node_modules
 
 dist
 
-
+examples/*/node_modules
+examples/*/dist

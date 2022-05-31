@@ -4,7 +4,7 @@ const microApps = [
   {
     name: 'vue',
     entry: process.env.VUE_APP_VUE,
-    activeRule: '/sub-vue'
+    activeRule: '/sub-vue/'
   }
 ]
 
