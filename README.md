@@ -38,3 +38,53 @@ server {
 `
 
 * nginx -s reload后就可以了
+
+### NGINX 配置
+
+`javascript
+    # localhost 改为ip地址
+
+server {
+    listen      80;
+    server_name localhost;
+    #location / {
+    #    root   html;
+    #    index  index.html index.htm;
+    #}
+
+    # 80端口映射到8088端口
+    location / {
+        proxy_pass http://localhost:8088;
+    }
+}
+
+server {
+    listen       8088;
+    server_name  localhost;
+
+    #charset koi8-r;
+
+    #access_log  logs/host.access.log  main;
+
+    location / {
+        root   html/www/main;
+        index  index.html index.htm;
+        try_files $uri $uri/ /index.html;
+    }
+
+    location ^~/subapp {
+        alias html/www/subapp/;
+        try_files $uri $uri/ /index.html;
+    }
+
+    # 配置跨域
+    #允许跨域请求的域，* 代表所有
+    add_header 'Access-Control-Allow-Origin' *;
+    #允许带上cookie请求
+    add_header 'Access-Control-Allow-Credentials' 'true';
+    #允许请求的方法，比如 GET/POST/PUT/DELETE
+    add_header 'Access-Control-Allow-Methods' *;
+    #允许请求的header
+    add_header 'Access-Control-Allow-Headers' *;
+}
+`
