@@ -7,14 +7,14 @@
 
 * 1. 主应用main和所有子应用都打包出一份html,css,js,static，分目录上传到服务器，子应用统一放到subapp目录下，最终如：
 
-`javasript
-├── main
-│   └── index.html
-└── subapp
-    ├── sub-react
-    │   └── index.html
-    └── sub-vue
-        └── index.html
+`javasript <br />
+├── main <br />
+│   └── index.html <br />
+└── subapp <br />
+    ├── sub-react <br />
+    │   └── index.html <br />
+    └── sub-vue <br />
+        └── index.html <br />
 
 `
 
